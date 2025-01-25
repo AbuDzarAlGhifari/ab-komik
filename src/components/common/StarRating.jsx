@@ -11,15 +11,15 @@ const StarRating = ({ rating }) => {
     <div className="flex items-center">
       {/* Full stars */}
       {Array.from({ length: fullStars }, (_, index) => (
-        <FaStar key={`full-${index}`} className="text-yellow-400 text-xs" />
+        <FaStar key={`full-${index}`} className="text-yellow-400" />
       ))}
 
       {/* Half star */}
-      {hasHalfStar && <FaStarHalfAlt className="text-yellow-400 text-xs" />}
+      {hasHalfStar && <FaStarHalfAlt className="text-yellow-400" />}
 
       {/* Empty stars */}
       {Array.from({ length: emptyStars }, (_, index) => (
-        <FaRegStar key={`empty-${index}`} className="text-gray-500 text-xs" />
+        <FaRegStar key={`empty-${index}`} className="text-gray-500" />
       ))}
     </div>
   );

@@ -39,9 +39,9 @@ const CardTop = ({ komikData }) => {
               ))}
             </div>
 
-            <div className="mt-2 flex items-center">
+            <div className="mt-2 flex items-center text-xs">
               <StarRating rating={Number(komik.rating)} />
-              <span className="text-white ml-2 text-xs">{komik.rating}</span>
+              <span className="text-white ml-2">{komik.rating}</span>
             </div>
           </div>
         </div>

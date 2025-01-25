@@ -18,9 +18,9 @@ const CardOngoing = ({ komik }) => {
 
         <p className="text-xs text-gray-400 truncate">{komik.latestChapter}</p>
 
-        <div className="mt-2 flex items-center">
+        <div className="mt-2 flex items-center text-xs">
           <StarRating rating={Number(komik.rating)} />
-          <span className="text-white ml-2 text-xs">{komik.rating}</span>
+          <span className="text-white ml-2">{komik.rating}</span>
         </div>
       </div>
     </div>

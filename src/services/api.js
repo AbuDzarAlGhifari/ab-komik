@@ -35,3 +35,9 @@ export const getDetailKomik = async (manhwaId) => {
   const response = await axiosInstance.get(`/manhwa-detail/${manhwaId}`);
   return response.data;
 };
+
+// DATA DETAIL CHAPTER
+export const getDetailChapter = async (chapterId) => {
+  const response = await axiosInstance.get(`/chapter/${chapterId}`);
+  return response.data;
+};
