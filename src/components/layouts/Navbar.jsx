@@ -1,5 +1,3 @@
-//
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiMenu, FiSearch, FiX } from 'react-icons/fi';
@@ -28,11 +26,11 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <form
-          onSubmit={handleSearchSubmit}
-          className="hidden md:flex items-center space-x-4"
-        >
-          <div className="relative">
+        <div className="hidden md:flex items-center space-x-4">
+          <form
+            onSubmit={handleSearchSubmit}
+            className="relative flex items-center"
+          >
             <input
               type="text"
               placeholder="Search..."
@@ -43,13 +41,33 @@ const Navbar = () => {
             <button type="submit" className="absolute right-3 top-3">
               <FiSearch className="text-gray-400" />
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
 
         <button onClick={toggleMenu} className="md:hidden text-white text-2xl">
           {isOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>
+
+      {isOpen && (
+        <div className="md:hidden mt-4 flex flex-col space-y-4">
+          <form
+            onSubmit={handleSearchSubmit}
+            className="flex items-center px-4"
+          >
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="bg-gray-700 text-white w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button type="submit" className="ml-2 text-white">
+              <FiSearch />
+            </button>
+          </form>
+        </div>
+      )}
     </nav>
   );
 };
