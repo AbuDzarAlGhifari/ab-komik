@@ -30,7 +30,7 @@ const ChapterSection = ({ komikDetail, nameKomik }) => {
   };
 
   return (
-    <div className="mt-8">
+    <div className="mt-8 bg-gray-900 p-2 sm:p-4">
       {/* Header Section */}
       <div className="flex flex-wrap justify-between items-center mb-4 gap-4">
         <div className="flex items-center gap-2">

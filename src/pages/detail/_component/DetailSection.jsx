@@ -4,6 +4,7 @@ import { SiInstatus } from 'react-icons/si';
 import StarRating from '@/components/common/StarRating';
 import { BiBook, BiCalendar, BiUser, BiBrush } from 'react-icons/bi';
 import { FaRegClock } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const DetailSection = ({ komikDetail }) => {
   const additionalInfo = [
@@ -40,7 +41,7 @@ const DetailSection = ({ komikDetail }) => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 bg-gray-900 p-2 sm:p-4">
       <div className="md:col-span-3 flex justify-center">
         <img
           src={komikDetail.imageSrc}
@@ -88,15 +89,13 @@ const DetailSection = ({ komikDetail }) => {
             {Array.isArray(komikDetail.genres) &&
             komikDetail.genres.length > 0 ? (
               komikDetail.genres.map((genre, index) => (
-                <a
+                <Link
                   key={index}
-                  href={genre.genreLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  to={`/genre/${genre.genreName}`}
                   className="bg-gray-800 px-3 py-1 rounded-lg text-white text-sm hover:bg-gray-700"
                 >
                   {genre.genreName}
-                </a>
+                </Link>
               ))
             ) : (
               <span className="text-gray-400 text-sm">No genres available</span>

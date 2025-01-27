@@ -41,3 +41,17 @@ export const getDetailChapter = async (chapterId) => {
   const response = await axiosInstance.get(`/chapter/${chapterId}`);
   return response.data;
 };
+
+// DATA DETAIL GENRE
+export const getGenreDetail = async (genreId, pageNumber) => {
+  const response = await axiosInstance.get(
+    `/genre/${genreId}/page/${pageNumber}`
+  );
+  return response.data;
+};
+
+// DATA SEARCH
+export const getSearchResults = async (searchQuery) => {
+  const response = await axiosInstance.get(`/search/${searchQuery}`);
+  return response.data;
+};

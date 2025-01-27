@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="p-6  border-t border-gray-700 bg-gray-900">
       <div className="container flex flex-col items-center justify-between mx-auto md:flex-row">
         {/* Links Section */}
-        <div className="flex gap-4 text-sm text-gray-700">
+        <div className="flex gap-4 text-sm text-white">
           <a href="/about" className="hover:underline">
             About
           </a>
@@ -18,13 +18,15 @@ const Footer = () => {
           </a>
         </div>
 
-        <p className="mt-4 text-sm text-gray-700 md:mt-0">
-          {new Date().getFullYear()} All Rights Reserved.
+        <p className="mt-4 text-sm text-white md:mt-0">
+          {new Date().getFullYear()} AbKomik All Rights Reserved.
         </p>
 
-        <p className="text-sm text-gray-700">data provided by .</p>
+        <p className="text-sm text-white">
+          data provided by @kurokami-manhwa-api
+        </p>
 
-        <div className="flex gap-4 mt-4 text-gray-700 md:mt-0">
+        <div className="flex gap-4 mt-4 text-white md:mt-0">
           <a href="#" className="hover:text-blue-600">
             <FaFacebookF size={18} />
           </a>

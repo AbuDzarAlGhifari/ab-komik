@@ -1,5 +1,9 @@
 import React from 'react';
 import CardPopular from '@/components/common/card/CardPopular';
+import {
+  ErrorComponent,
+  PopularSectionSkeleton,
+} from '@/components/common/Skeleton/PopularSectionSkeleton';
 import useFetch from '@/hooks/useFetch';
 import { getKomikPopular } from '@/services/api';
 import { IoMdTrophy } from 'react-icons/io';
@@ -8,8 +12,8 @@ import Slider from 'react-slick';
 const PopularSection = () => {
   const { data: komikData, isLoading, error } = useFetch(getKomikPopular);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (isLoading) return <PopularSectionSkeleton />;
+  if (error) return <ErrorComponent error={error} />;
 
   const settings = {
     dots: false,

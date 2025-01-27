@@ -13,19 +13,22 @@ const CardNew = ({ komikData }) => {
           className="flex items-start gap-4 border-t border-gray-500 bg-gray-800 p-3"
         >
           {/* Image */}
-          <div className="w-24 h-28 flex-shrink-0 relative">
+          <Link
+            to={`/detail/${slugify(komik.title)}`}
+            className="w-24 h-28 flex-shrink-0 relative"
+          >
             <img
               src={resizeImage(komik.imageSrc, 800, 830)}
               alt={komik.title}
-              className="h-full w-full object-fill rounded-lg"
+              className="h-full w-full object-fill rounded-lg transition-transform transform hover:scale-105 duration-300"
             />
-          </div>
+          </Link>
 
           {/* Content */}
           <div className="flex flex-col w-full justify-between overflow-hidden">
             <Link
               to={`/detail/${slugify(komik.title)}`}
-              className="text-sm font-semibold cursor-pointer text-white truncate hover:underline"
+              className="text-sm font-semibold cursor-pointer text-white truncate hover:text-blue-500"
             >
               {komik.title}
             </Link>
@@ -35,13 +38,20 @@ const CardNew = ({ komikData }) => {
               {komik.chapters.map((chapter, index) => (
                 <div
                   key={index}
-                  className="flex items-center mb-1.5 justify-between text-xs"
+                  className="flex items-center mb-1.5 text-gray-200 hover:text-blue-500 justify-between text-xs"
                 >
-                  <div className="flex gap-0.5 text-gray-400 items-center">
-                    <TbPointFilled />
-                    <span>{chapter.chapterTitle}</span>
-                  </div>
-                  <span className="text-gray-400">{chapter.timeAgo}</span>
+                  <Link
+                    to={`/chapter/${slugify(komik.title)}-${slugify(
+                      chapter.chapterTitle.replace(/ch/gi, 'chapter')
+                    )}`}
+                    className="flex gap-0.5 items-center w-full justify-between"
+                  >
+                    <div className="flex gap-0.5 items-center">
+                      <TbPointFilled />
+                      <span>{chapter.chapterTitle}</span>
+                    </div>
+                    <span>{chapter.timeAgo}</span>
+                  </Link>
                 </div>
               ))}
             </div>
